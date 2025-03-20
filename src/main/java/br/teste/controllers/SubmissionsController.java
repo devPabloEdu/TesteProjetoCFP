@@ -2,6 +2,7 @@ package br.teste.controllers;
 
 import br.teste.entity.SubmissionEntity;
 import br.teste.services.SubmissionsService;
+import jakarta.transaction.Transactional;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
@@ -15,5 +16,14 @@ public class SubmissionsController {
 
     public SubmissionsController(SubmissionsService submissionsService) {
         this.submissionsService = submissionsService;
+    }
+
+    @Path("/criarSubmissao")
+    @POST
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Transactional
+    public Response createSubmission(SubmissionEntity submissionEntity){
+        return Response.ok(submissionsService.createSubmission(submissionEntity)).build();
     }
 }
