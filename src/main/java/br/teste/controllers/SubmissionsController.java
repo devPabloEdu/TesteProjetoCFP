@@ -1,21 +1,19 @@
 package br.teste.controllers;
 
-import br.teste.entity.Submission;
-import jakarta.ws.rs.Consumes;
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.Produces;
+import br.teste.entity.SubmissionEntity;
+import br.teste.services.SubmissionsService;
+import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
-import java.awt.*;
 @Path("/Submissoes")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class SubmissionsController {
 
-    @GET
-    public Response listarSubmissoes(){
-        return Response.ok("Deu certo mulekote").build();
+    private final SubmissionsService submissionsService;
+
+    public SubmissionsController(SubmissionsService submissionsService) {
+        this.submissionsService = submissionsService;
     }
 }
