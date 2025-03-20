@@ -1,0 +1,14 @@
+version: '3.1'
+
+services:
+  mariadb:
+    image: mariadb:10.6
+    container_name: mariadb_testedb
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: testedb
+      MYSQL_USER: pablo
+      MYSQL_PASSWORD: testeglobalcode
+    ports:
+      - "3306:3306"
+    restart: always
