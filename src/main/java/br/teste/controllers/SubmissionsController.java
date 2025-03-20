@@ -1,5 +1,6 @@
 package br.teste.controllers;
 
+import br.teste.entity.Submission;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
