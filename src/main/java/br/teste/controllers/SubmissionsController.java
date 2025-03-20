@@ -20,8 +20,6 @@ public class SubmissionsController {
 
     @Path("/criarSubmissao")
     @POST
-    @Produces(MediaType.APPLICATION_JSON)
-    @Consumes(MediaType.APPLICATION_JSON)
     @Transactional
     public Response createSubmission(SubmissionEntity submissionEntity){
         return Response.ok(submissionsService.createSubmission(submissionEntity)).build();
