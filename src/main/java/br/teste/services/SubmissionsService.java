@@ -1,6 +1,7 @@
 package br.teste.services;
 
 import br.teste.entity.SubmissionEntity;
+import br.teste.exception.SubmissionNotFoundException;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.transaction.Transactional;
 
@@ -30,6 +31,9 @@ public class SubmissionsService {
     @Transactional
     public void DeleteSubmission(Long Id){
         var RemovedSubmission = SubmissionEntity.findById(Id);
+        if (RemovedSubmission == null){
+            throw new SubmissionNotFoundException();
+        }
         RemovedSubmission.delete();
     }
 
