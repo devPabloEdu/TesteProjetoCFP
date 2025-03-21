@@ -42,4 +42,12 @@ public class SubmissionsController {
         return Response.ok(dtoList).build();
 
     }
+
+    @Path("/DeleteSubmission")
+    @DELETE
+    @Transactional
+    public Response DeleteSubmission(@QueryParam("Id") Long Id){
+        submissionsService.DeleteSubmission(Id);
+        return Response.noContent().build();
+    }
 }
