@@ -5,6 +5,7 @@ import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.transaction.Transactional;
 
 import java.awt.*;
+import java.util.List;
 
 
 @ApplicationScoped
@@ -17,7 +18,9 @@ public class SubmissionsService {
         return submissionEntity;
     }
 
-    public Object ListAllSubmissions(Integer page, Integer pageSize) {
-        return SubmissionEntity.findAll().page(page, pageSize).list();
+    public List<SubmissionEntity> ListAllSubmissions(Integer page, Integer pageSize) {
+        return SubmissionEntity.findAll()
+                .page(page, pageSize)
+                .list();
     }
 }
