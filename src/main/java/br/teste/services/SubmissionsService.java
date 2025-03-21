@@ -2,6 +2,7 @@ package br.teste.services;
 
 import br.teste.entity.SubmissionEntity;
 import br.teste.exception.SubmissionNotFoundException;
+import br.teste.exception.SubmissionNullException;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.transaction.Transactional;
 
@@ -16,8 +17,15 @@ public class SubmissionsService {
     @Transactional
     //Criar uma nova submissão
     public SubmissionEntity createSubmission(SubmissionEntity submissionEntity){
-        SubmissionEntity.persist(submissionEntity);
-        return submissionEntity;
+        try {
+            SubmissionEntity.persist(submissionEntity);
+            if (submissionEntity == null){
+                throw new SubmissionNullException();
+            }
+            return submissionEntity;
+        } catch(Exception e) {
+            throw new RuntimeException("Erro ao enviar a submissão: " + e.getMessage());
+        }
     }
 
     //Listar todas as submissões
@@ -41,6 +49,10 @@ public class SubmissionsService {
     @Transactional
     public SubmissionEntity EditSubmission(long Id, SubmissionEntity submissionEntity){
         SubmissionEntity AlterSubmission = SubmissionEntity.findById(Id);
+        if (AlterSubmission == null){
+            throw new SubmissionNotFoundException();
+        }
+
         AlterSubmission.Title = submissionEntity.Title;
         AlterSubmission.Resume = submissionEntity.Resume;
         AlterSubmission.AuthorName = submissionEntity.AuthorName;
