@@ -15,42 +15,24 @@ public class SubmissionEntity extends PanacheEntityBase {
     public String AuthorName;
     public String AuthorEmail;
 
-    //Construtor padrão criado para o hibernate ORM
+    //Construtor vazio criado para o hibernate ORM
     public SubmissionEntity() {}
 
-    public long getId() {
-        return Id;
-    }
+    public long getId() { return Id; }
 
-    public String getTitle() {
-        return Title;
-    }
+    public String getTitle() { return Title; }
 
-    public void setTitle(String title) {
-        Title = title;
-    }
+    public void setTitle(String title) { Title = title; }
 
-    public String getResume() {
-        return Resume;
-    }
+    public String getResume() { return Resume; }
 
-    public void setResume(String resume) {
-        Resume = resume;
-    }
+    public void setResume(String resume) { Resume = resume; }
 
-    public String getAuthorName() {
-        return AuthorName;
-    }
+    public String getAuthorName() { return AuthorName; }
 
-    public void setAuthorName(String authorName) {
-        AuthorName = authorName;
-    }
+    public void setAuthorName(String authorName) { AuthorName = authorName; }
 
-    public String getAuthorEmail() {
-        return AuthorEmail;
-    }
+    public String getAuthorEmail() { return AuthorEmail; }
 
-    public void setAuthorEmail(String authorEmail) {
-        AuthorEmail = authorEmail;
-    }
+    public void setAuthorEmail(String authorEmail) { AuthorEmail = authorEmail; }
 }

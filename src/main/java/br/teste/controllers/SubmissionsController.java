@@ -7,7 +7,7 @@ import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
-@Path("/Submissoes")
+@Path("/Submissions")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class SubmissionsController {
@@ -18,10 +18,17 @@ public class SubmissionsController {
         this.submissionsService = submissionsService;
     }
 
-    @Path("/criarSubmissao")
+    @Path("/createSubmission")
     @POST
     @Transactional
     public Response createSubmission(SubmissionEntity submissionEntity){
         return Response.ok(submissionsService.createSubmission(submissionEntity)).build();
+    }
+
+    @Path("/ListSubmissions")
+    @GET
+    public Response ListAllSubmissions(@QueryParam("page") @DefaultValue("0") Integer page, @QueryParam("pageSize") @DefaultValue("20") Integer pageSize){
+        var submissionsList = submissionsService.ListAllSubmissions(page, pageSize);
+        return Response.ok(submissionsList).build();
     }
 }

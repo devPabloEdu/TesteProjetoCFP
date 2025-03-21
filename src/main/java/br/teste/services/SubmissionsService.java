@@ -16,4 +16,8 @@ public class SubmissionsService {
         SubmissionEntity.persist(submissionEntity);
         return submissionEntity;
     }
+
+    public Object ListAllSubmissions(Integer page, Integer pageSize) {
+        return SubmissionEntity.findAll().page(page, pageSize).list();
+    }
 }
