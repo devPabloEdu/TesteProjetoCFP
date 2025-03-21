@@ -32,15 +32,11 @@ public class SubmissionsController {
     @Path("/ListSubmissions")
     @GET
     public Response ListAllSubmissions(@QueryParam("page") @DefaultValue("0") Integer page, @QueryParam("pageSize") @DefaultValue("20") Integer pageSize){
-
         var submissionsList = submissionsService.ListAllSubmissions(page, pageSize);
-
         List<SubmissionsDTO> dtoList = submissionsList.stream()
                 .map(s -> new SubmissionsDTO(s.Id, s.Title, s.Resume, s.AuthorName, s.AuthorEmail))
                 .collect(Collectors.toList());
-
         return Response.ok(dtoList).build();
-
     }
 
     @Path("/DeleteSubmission")
@@ -49,5 +45,12 @@ public class SubmissionsController {
     public Response DeleteSubmission(@QueryParam("Id") Long Id){
         submissionsService.DeleteSubmission(Id);
         return Response.noContent().build();
+    }
+
+    @Path("/EditSubmission")
+    @PUT
+    @Transactional
+    public Response EditSubmission(@QueryParam("Id") Long Id, SubmissionEntity submissionEntity){
+        return Response.ok(submissionsService.EditSubmission(Id, submissionEntity)).build();
     }
 }

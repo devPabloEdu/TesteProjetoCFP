@@ -32,4 +32,17 @@ public class SubmissionsService {
         var RemovedSubmission = SubmissionEntity.findById(Id);
         RemovedSubmission.delete();
     }
+
+    //Editar uma Submissão
+    @Transactional
+    public SubmissionEntity EditSubmission(long Id, SubmissionEntity submissionEntity){
+        SubmissionEntity AlterSubmission = SubmissionEntity.findById(Id);
+        AlterSubmission.Title = submissionEntity.Title;
+        AlterSubmission.Resume = submissionEntity.Resume;
+        AlterSubmission.AuthorName = submissionEntity.AuthorName;
+        AlterSubmission.AuthorEmail = submissionEntity.AuthorEmail;
+
+        SubmissionEntity.persist(AlterSubmission);
+        return AlterSubmission;
+    }
 }
