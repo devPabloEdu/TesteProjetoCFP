@@ -120,6 +120,5 @@ teste-tecnico/
     │   ├── index.tsx
     │   └── theme.ts
     ├── package.json
-    ├── Dockerfile
     └── .env.example
 ```
