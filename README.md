@@ -92,3 +92,34 @@ curl -X POST "http://localhost:8080/Submissions/createSubmission" \
   "authorEmail": "joao@email.com"
 }'
 ```
+
+## Estrutura do projeto
+```bash
+teste-tecnico/
+├──📦 backend-api/                # Código-fonte do backend
+│   ├── 📂docker                  # Contém arquivos para a criação de containers Docker.
+│   ├── 📂.mvn
+|   |── 📂src/
+|   |───📂main/java/        
+│   │   ├── 📂controllers/       # Contém as classes responsáveis por definir os endpoints da API.
+│   │   ├── 📂dto/               # Data Transfer Object (DTO) : Os DTOs servem para transportar dados entre o backend e o frontend sem expor diretamente as entidades do banco. 
+│   │   ├── 📂exceptions/        # Usada para armazenar classes de exceção personalizadas, que ajudam no tratamento de erros no backend.
+│   │   ├── 📂entity/            # Contém as classes/Modelos que representam as tabelas do banco de dados.
+│   │   ├── 📂 services/         # Contém as regras de negócio da aplicação.
+|   |   |── 📂resources/         # Guarda arquivos de configuração e recursos estáticos.
+│   ├── Dockerfile
+│   └── docker-compose.yml
+└── 📂frontend-react/frontend/               # Código-fonte do frontend
+    ├── 📂node_modules/                      # Diretório onde o npm ou yarn instala as dependências do projeto.
+    ├── 📂public/                            # Contém arquivos estáticos, como imagens e o index.html, que é o ponto de entrada da aplicação.
+    ├── 📂src/                
+    │   ├── 📂components/                    # Contém os componentes reutilizáveis da aplicação, como botões, cards, modais, etc.
+    │   ├── 📂services/                      # Contém funções para fazer requisições à API, como chamadas com axios para buscar ou enviar dados ao backend.
+    │   ├── 📂styles/                        # Contém arquivos de estilização da aplicação
+    │   ├── App.tsx
+    │   ├── index.tsx
+    │   └── theme.ts
+    ├── package.json
+    ├── Dockerfile
+    └── .env.example
+```
