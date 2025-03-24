@@ -3,10 +3,14 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import SubmissionsPage from "./components/SubmissionsPage"
 import CreateSubmissionPage from './components/CreateSubmissionPage';
 import EditSubmissionPage from './components/EditSubmissionPage';
+import NavBar from './components/NavBar';
 
 const App: React.FC = () => {
   return (
     <Router>
+      <header>
+        <NavBar />
+      </header>
       <Routes>
         <Route path="/"  element={<SubmissionsPage />} />
         <Route path="/create" element={<CreateSubmissionPage />} />

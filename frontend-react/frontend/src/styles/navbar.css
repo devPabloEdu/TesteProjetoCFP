@@ -1,0 +1,15 @@
+@charset "UTF-8";
+*{
+    margin: 0;
+}
+.navbarBox{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    background-color: #333;
+    padding: 20px;
+    border-bottom: solid #e35100 5px;
+}
+.navbarBox img{
+    width: 200px;
+}
