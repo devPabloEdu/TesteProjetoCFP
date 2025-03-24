@@ -40,6 +40,7 @@ const CreateSubmissionPage: React.FC = () => {
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             required
+            aria-label='Titulo de sua palestra'
           />
         </div>
         <div>
@@ -49,6 +50,7 @@ const CreateSubmissionPage: React.FC = () => {
             onChange={(e) => setResume(e.target.value)}
             required
             className='ResumeInput'
+            aria-label='Resumo de sua palestra'
           />
         </div>
         <div>
@@ -58,6 +60,7 @@ const CreateSubmissionPage: React.FC = () => {
             value={authorName}
             onChange={(e) => setAuthorName(e.target.value)}
             required
+            aria-label='Nome do autor da palestra'
           />
         </div>
         <div>
@@ -67,9 +70,10 @@ const CreateSubmissionPage: React.FC = () => {
             value={authorEmail}
             onChange={(e) => setAuthorEmail(e.target.value)}
             required
+            aria-label='E-mail do autor da palestra'
           />
         </div>
-        <button type="submit">Criar Submissão</button>
+        <button type="submit" aria-label='Enviar solicitação de palestra'>Criar Submissão</button>
       </form>
     </div>
   );

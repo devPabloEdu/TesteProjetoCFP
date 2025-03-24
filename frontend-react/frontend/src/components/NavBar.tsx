@@ -6,7 +6,7 @@ function NavBar() {
     return <div>
         <div>
             <nav className="navbarBox">
-                <Link to={"/"} ><img src="/assets/saopauloW.png" alt="" /></Link>
+                <Link to={"/"} ><img src="/assets/saopauloW.png" alt="LogoHome" aria-label="Logo da empresa TDC" /></Link>
             </nav>
         </div>
     </div>

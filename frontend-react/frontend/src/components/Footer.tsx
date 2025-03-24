@@ -4,7 +4,7 @@ import "../styles/footer.css";
 function Footer() {
     return <div className="footercontainer">
         <h3>Desenvolvido por Pablo Eduardo</h3>
-        <img src="/assets/globalcodelogo.png" alt="" />
+        <img src="/assets/globalcodelogo.png" alt="LogoGlobalCode" aria-label="LogoGlobalCode" />
         <p>The developer's conference &copy;</p>
     </div>
 }
