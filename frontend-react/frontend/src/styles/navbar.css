@@ -1,10 +1,10 @@
 @charset "UTF-8";
 *{
     margin: 0;
+    text-align: center;
 }
 .navbarBox{
     display: flex;
-    width: 100%;
     align-items: center;
     background-color: #333;
     padding: 20px;

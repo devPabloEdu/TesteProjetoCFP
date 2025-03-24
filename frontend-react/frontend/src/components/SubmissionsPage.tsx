@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axiosInstance from '../services/axiosInstance'
 import { Link } from 'react-router-dom';
+import "../styles/SubmissionsPage.css";
 
 interface Submission {
   Id: number;
@@ -37,21 +38,45 @@ const SubmissionsPage: React.FC = () => {
   };
 
   return (
-    <div>
-      <h1>Submissões</h1>
-      <Link to="/create">Criar Nova Submissão</Link>
-      <ul>
-        {submissions.map((submission) => (
-          <li key={submission.Id}>
-            <h3>{submission.Title}</h3>
-            <p>{submission.Resume}</p>
-            <p>{submission.AuthorName}</p>
-            <p>{submission.AuthorEmail}</p>
-            <Link to={`/edit/${submission.Id}`}>Editar</Link>
-            <button onClick={() => handleDelete(submission.Id)}>Excluir</button>
-          </li>
-        ))}
-      </ul>
+    <div className='HomeContainer'>
+      <div className='HomeTextBox'>
+        <p>PARTICIPE DA NOSSA NOVA <br /> JORNADA DE <span>TECNOLOGIA</span></p>
+      </div>
+
+      <div>
+        <div className='TitulosHome'>
+          <div>
+            <h2>Call4Papers</h2>
+            <p>Segue abaixo todas as solicitações <br /> que recebemos até o momento</p>
+          </div>
+          <Link to="/create"><button>Criar Nova Submissão</button></Link>
+        </div>
+
+        <div className='tableBox'>
+          <table>
+            <thead>
+              <tr>
+                <th>TÍTULO</th>
+                <th>RESUMO</th>
+                <th>AUTOR</th>
+                <th>E-MAIL</th>
+              </tr>
+            </thead>
+            <tbody>
+            {submissions.map((submission) => (
+              <tr key={submission.Id}>
+                <td>{submission.Title}</td>
+                <td>{submission.Resume}</td>
+                <td>{submission.AuthorName}</td>
+                <td>{submission.AuthorEmail}</td>
+                <Link to={`/edit/${submission.Id}`}><button className='editButton'>Editar</button></Link>
+                <button onClick={() => handleDelete(submission.Id)} className='deleteButton'>Excluir</button>
+                </tr>
+            ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   );
 };
