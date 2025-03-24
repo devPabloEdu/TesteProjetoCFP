@@ -30,8 +30,8 @@ const CreateSubmissionPage: React.FC = () => {
   };
 
   return (
-    <div>
-      <h1>Criar Nova Submissão</h1>
+    <div className='CreateBox'>
+      <h1>Call<span>4</span>Papers</h1>
       <form onSubmit={handleSubmit}>
         <div>
           <label>Título</label>
@@ -48,6 +48,7 @@ const CreateSubmissionPage: React.FC = () => {
             value={resume}
             onChange={(e) => setResume(e.target.value)}
             required
+            className='ResumeInput'
           />
         </div>
         <div>
