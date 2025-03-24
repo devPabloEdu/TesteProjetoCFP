@@ -4,6 +4,7 @@ import SubmissionsPage from "./components/SubmissionsPage"
 import CreateSubmissionPage from './components/CreateSubmissionPage';
 import EditSubmissionPage from './components/EditSubmissionPage';
 import NavBar from './components/NavBar';
+import Footer from './components/Footer';
 
 const App: React.FC = () => {
   return (
@@ -16,6 +17,9 @@ const App: React.FC = () => {
         <Route path="/create" element={<CreateSubmissionPage />} />
         <Route path="/edit/:id" element={<EditSubmissionPage />} />
       </Routes>
+      <footer>
+        <Footer />
+      </footer>
     </Router>
   );
 };
