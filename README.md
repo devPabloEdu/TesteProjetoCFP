@@ -8,7 +8,7 @@
 
 ## Tecnologias Utilizadas:
 As tecnologias escolhidas para a solução foram selecionadas para manter o mesmo ambiente de trabalho utilizado na GlobalCode, mesmo que isso não seja um critério de avaliação.
-- Backend: Java, Quarkus, RESTEasy, Jakarta EE
+- Backend: Java, Quarkus, RESTEasy, Jakarta EE, Hibernate ORM, Renade
 - Frontend: ReactJs, TypeScript, html semântico, CSS
 - Banco de Dados Relacional: MariaDB
 - Containerização: Docker
